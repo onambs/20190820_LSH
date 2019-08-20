@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.java.hdfs.Hadoop;
+
 @WebServlet("/Home")
 public class Home extends HttpServlet {
 	
@@ -30,6 +32,8 @@ public class Home extends HttpServlet {
 			res.sendRedirect("/Home");
 		} else {
 			// 정제 요청 대상 파일명 값이 있으면 HDFS 실행 요청 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+			Hadoop h1 = new Hadoop();
+			h1.run(file_name);
 			req.setAttribute("file_name", file_name);
 			RequestDispatcher rd = req.getRequestDispatcher(viewPath("result"));
 			rd.forward(req, res);
