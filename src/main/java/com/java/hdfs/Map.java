@@ -9,7 +9,6 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 //Mapper<(입력키<행번호> : 입력값<행의글자>) , (출력키<글자> : 출력값<1>)>
 public class Map extends Mapper<LongWritable, Text, Text, IntWritable> {
-
 	// 출력 키 변수
 	protected Text textKey = new Text();
 	// 출력 값 변수
